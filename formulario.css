@@ -1,0 +1,44 @@
+body {
+background: #feffff;
+background: -moz-linear-gradient(top,  #feffff 0%, #ddf1f9 35%, #a0d8ef 100%);
+background: -webkit-linear-gradient(top,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+background: linear-gradient(to bottom,  #feffff 0%,#ddf1f9 35%,#a0d8ef 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#a0d8ef',GradientType=0 );
+
+}
+div#container {
+	display: block; 
+	width: 600px; 
+	background-color: white; 
+	margin: auto; 
+	padding: 10px;
+	border-radius: 19px 19px 19px 19px;
+	-moz-border-radius: 19px 19px 19px 19px;
+	-webkit-border-radius: 19px 19px 19px 19px;
+	border: 0px solid #000000;
+	-webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+}
+button {
+	display: block;
+	margin: auto;
+	padding: 15px;
+}
+input {
+	display: block;
+	padding: 10px;
+	border-radius: 10px 10px 10px 10px;
+	-moz-border-radius: 10px 10px 10px 10px;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border: 0px solid #000000;
+	background-color: #CCC;
+}
+
+.error {
+	border: 2px solid red;
+}
+
+.correcto {
+	border: 2px solid green;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="formulario.css">
+</head>
+<body>
+
+	<!--
+	FORMULARIO PARA PUESTO DE TRABAJO EN IT
+	CAMPOS
+		Nombre y Apellido (Obligatorio)
+		Razón Social / Empresa (Obligatorio)
+		Email (debe contener @ y . )
+		Confirmación de email (debe ser igual al email)
+		Edad (Debe ser mayor a 18)
+
+		Experiencias
+			Trabajo - Empresa - Duración (Obligatorio)
+			Trabajo - Empresa - Duración (No obligatorio)
+			Trabajo - Empresa - Duración (No obligatorio)
+
+		Competencias (No obligatorio)
+			PHP (Checkbox)
+			JavaScript (Checkbox)
+			Java (Checkbox)
+			.NET (Checkbox)
+			Maquetado HTML y CSS (Checkbox)
+
+		Objetivo laboral (entre 10 y 75 palabras)
+	-->
+	<div id="container">
+	<form id="formulario">
+		<label> Nombre y Apellido
+		<input type="text" id="txtNomApp" placeholder="abc">
+		</label><div id="errorNombre">*</div> <br>
+		<label> Razón Social / Empresa
+		<input type="text" id="txtEmpresa" placeholder="abc">
+		</label>* <br>
+		<label> Email
+		<input type="text" id="txtEmail" placeholder="abc">
+		</label>* <br>
+		<label> Confirmación de email
+		<input type="text" id="txtReemail" placeholder="abc">
+		</label>* <br>
+		<label> Edad
+		<input type="text" id="txtEdad" placeholder="abc">
+		</label> <br>
+		<hr>
+		Experiencias
+		<table>
+			<thead>
+				<tr>
+					<th>Trabajo</th>
+					<th>Empresa</th>
+					<th>Duración</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="text" id="txtT1"></td>
+					<td><input type="text" id="txtE1"></td>
+					<td><input type="text" id="txtD1"></td>
+				</tr>
+				<tr>
+					<td><input type="text" id="txtT2"></td>
+					<td><input type="text" id="txtE2"></td>
+					<td><input type="text" id="txtD2"></td>
+				</tr>
+				<tr>
+					<td><input type="text" id="txtT3"></td>
+					<td><input type="text" id="txtE3"></td>
+					<td><input type="text" id="txtD3"></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		Competencias
+		<label> PHP
+			<input type="checkbox" id="chkPHP">
+		</label>
+		<label> JavaScript
+			<input type="checkbox" id="chkJS">
+		</label>
+		<label> Java
+			<input type="checkbox" id="chkJava">
+		</label>
+		<label> .NET
+			<input type="checkbox" id="chkNET">
+		</label>
+		<label> Maquetado CSS
+			<input type="checkbox" id="chkCSS">
+		</label>
+		<hr>
+		<label>Objetivo laboral <br>
+			<textarea id="txtObjetivo" cols="50" rows="7"></textarea>
+		</label>
+		<hr>
+		<button>ENVIAR</button>
+	</form>
+	</div>
+	<script src="formulario.js"></script>
+</body>
+</html>
