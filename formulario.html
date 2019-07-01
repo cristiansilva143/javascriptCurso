@@ -16,7 +16,7 @@
 		Edad (Debe ser mayor a 18)
 
 		Experiencias
-			Trabajo - Empresa - Duración (Obligatorio)
+			Trabajo - Empresa - Duración (No obligatorio)
 			Trabajo - Empresa - Duración (No obligatorio)
 			Trabajo - Empresa - Duración (No obligatorio)
 
@@ -30,19 +30,20 @@
 		Objetivo laboral (entre 10 y 75 palabras)
 	-->
 	<div id="container">
-	<form id="formulario">
+	<form id="formulario" method="get" action="formulaio.html">
 		<label> Nombre y Apellido
 		<input type="text" id="txtNomApp" placeholder="abc">
-		</label><div id="errorNombre">*</div> <br>
-		<label> Razón Social / Empresa
-		<input type="text" id="txtEmpresa" placeholder="abc">
-		</label>* <br>
+		<div id="errNomApp">*</div>
+		</label> <br>
+		<label> CUIT
+		<input type="text" id="txtCUIT" placeholder="XX-XXXXXXXX-X">
+		</label><div id="errCUIT">*</div><br>
 		<label> Email
 		<input type="text" id="txtEmail" placeholder="abc">
-		</label>* <br>
+		</label><div id="errEmail">*</div><br>
 		<label> Confirmación de email
 		<input type="text" id="txtReemail" placeholder="abc">
-		</label>* <br>
+		</label><div id="errReemail">*</div> <br>
 		<label> Edad
 		<input type="text" id="txtEdad" placeholder="abc">
 		</label> <br>
@@ -99,6 +100,6 @@
 		<button>ENVIAR</button>
 	</form>
 	</div>
-	<script src="formulario.js"></script>
+	<script src="formulario_2.js"></script>
 </body>
 </html>
