@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+    <head>
+
+    </head>
+    <body>  
+        <script>
+
+            let nodo = document.createElement("p");
+            document.body.appendChild(nodo);
+            let letras = "BIENVENIDOS A JAVASCRIPTS";
+            let indiceActual = 0;
+            setInterval(function(){
+
+                if(indiceActual != letras.length){
+                    nodo.innerHTML += letras[indiceActual];
+                    indiceActual++;
+                }
+            }, 500);
+                
+        </script>
+    </body>
+</html>
