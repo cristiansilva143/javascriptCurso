@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Document</title>
+</head>
+<body>
+<ul>
+        <li><a href="estudios.html">CURRICULUM VITAE</a></li>
+        
+</ul>
+
+    <div id="contenido">   
+
+    </div>
+
+    <script>
+     const   ul = document.querySelector("ul");
+     const contenido = document.querySelector("#contenido");
+
+     //Eventos
+     document.addEventListener("DOMContenidoLoaded",e=>{ //asegura que se carguen los elelemtos en el dom el DOM esta listo para usarce!
+     });
+     window.addEventListener("load", e => {});
+
+
+        ul.addEventListener("click", e=>{
+            e.preventDefault();
+            if (e.target.href) {
+            	const ruta = e.target.href;
+            
+            console.log(ruta);
+            let ajax = new XMLHttpRequest();
+            ajax.open("GET", ruta);
+            ajax.send();
+            ajax.addEventListener("load", () =>{
+               contenido.innerHTML = ajax.response;
+            });
+            
+            }
+            
+        });
+
+    </script>
+</body>
+</html>
