@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!-- Diseñar un CV online en el que cada sección se cargue
+	de un archivo externo de forma asincrónica. Al cargarse
+	la página deberá tener una sección cargada (elegirla), y
+	deberá contar con un menu que me permita cargar cada una de
+	las secciones. -->
+
+	<ul id="nav">
+		<li><a href="personales.html">Datos personales</a></li>
+		<li><a href="formacion.html">Formacion Académica</a></li>
+		<li><a href="experiencia.html">Experiencia Profesional</a></li>
+	</ul>
+	<div id="seccion"></div>
+
+	<script>
+		const nav = document.querySelector("#nav");
+		const seccion = document.querySelector("#seccion");
+
+		nav.addEventListener("click", e => {
+			e.preventDefault();
+			if(e.target.href) {
+				const xhr = new XMLHttpRequest();
+				xhr.open("GET", e.target.href);
+				xhr.send();
+				xhr.addEventListener("load", () => {
+					history.pushState(xhr.response, "", "");
+					seccion.innerHTML = xhr.response;
+				});
+			}
+		});
+
+		document.addEventListener("DOMContentLoaded", () => {
+			const xhr = new XMLHttpRequest();
+			xhr.open("GET", "personales.html");
+			xhr.send();
+			xhr.addEventListener("load", () => {
+				seccion.innerHTML = xhr.response;
+			});
+		});
+
+		window.addEventListener("popstate", e => {
+			seccion.innerHTML = e.state;
+		});
+	</script>
+</body>
+</html>

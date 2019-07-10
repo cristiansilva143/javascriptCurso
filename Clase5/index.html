@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<ul>
+		<li><a href="budin_de_pan.html">Budin de Pan</a></li>
+		<li><a href="chocotorta.html">Chocotorta</a></li>
+		<li><a href="pizza.html">Pizza</a></li>
+	</ul>
+
+	<div id="contenido">
+		
+	</div>
+
+	<script>
+	/* 
+	Crear una aplicación que consista en un menú de recetas.
+	Al hacer click en cada elemento, se debe cargar el contenido
+	de la receta (que se encuentra en un archivo externo) sin que
+	se recargue la página
+	*/
+	// Elementos importantes
+	const ul = document.querySelector("ul");
+	const contenido = document.querySelector("#contenido");
+
+	// Eventos
+	document.addEventListener("DOMContentLoaded", e => {});
+	window.addEventListener("load", e => {});
+
+	ul.addEventListener("click", e => {
+		e.preventDefault();
+		if(e.target.href) {
+			const ruta = e.target.href;
+			let ajax = new XMLHttpRequest();
+			ajax.open("GET", ruta);
+			ajax.send();
+			ajax.addEventListener("load", () => {
+				contenido.innerHTML = ajax.response;
+			});
+		}
+	});
+	</script>
+</body>
+</html>
