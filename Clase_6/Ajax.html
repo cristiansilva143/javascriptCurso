@@ -5,7 +5,7 @@
     <title>Document</title>
 </head>
 <body>
-<div class="boton-ajax" data-fuente="contenido.json" data-destino="#contenedor">Clickeame</div>
+<!--div class="boton-ajax" data-fuente="contenido.json" data-destino="#contenedor">Clickeame</div>-->
 
 <div class="btn-img" data-img="img/full.jpg" data-id="imagen">Cargar IMG 1</div>
 
@@ -13,7 +13,7 @@
 
 <div id="contenedor"></div>
 
-<img src="" id="imagen" width="200" heigth="200">
+<img src="" id="imagen" width="1080" heigth="760">
 
 
 <script>
@@ -47,7 +47,8 @@ document.querySelectorAll(".btn-img").forEach(elemento => {
         xhr.send();
         xhr.addEventListener("progress", e => {
             if(e.loaded == e.total) {
-                document.querySelector("#barra").style = "display: none;"
+                document.querySelector("#barra").style = "display: none;",
+                document.querySelector("#barra").value = 0 ;
             } else if(e.lengthComputable) {
                 const porc = (e.loaded * 100) / e.total;
                 document.querySelector("#barra").style = "display: block;"
