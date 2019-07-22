@@ -1,82 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	<style type="text/css">
-		#app {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: baseline;
-		}
-		#app div {
-			flex-grow: 4;
-			text-align: center;
-			border: 3px dotted black;
-			width: 200px;
-			height: 200px;
-			vertical-align: middle;
-		}
-		#app div:hover {
-			background: #CCC;
-			cursor: pointer;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>prototipos</title>
 </head>
 <body>
-	<div id="app">
-		<div data-load="carlos">Carlos</div>
-		<div data-load="andrea">Andrea</div>
-		<div data-load="jose">Jose</div>
-	</div>
-	<script>
-		// NIVEL 3
-		document.querySelector("#app").addEventListener("click", e => {
-			const elemento = e.target;
-			const actual = e.target.dataset.load;
-			const peticion = new XMLHttpRequest();
-			peticion.open("get", "template.html");
-			peticion.send();
-			peticion.addEventListener("load", () => {
-				const plantilla = peticion.response;
-				const peticionUsuario = new XMLHttpRequest();
-				peticionUsuario.open("get", actual+".txt");
-				peticionUsuario.send();
-				peticionUsuario.addEventListener("load", () => {
-					const datos = peticionUsuario.response.split("/");
-					const txt = plantilla.replace("_NOMBRE_", datos[0]).replace("_DESCRIPCION_", datos[1]);
-					elemento.innerHTML = txt;
-				});
-			});
-		});
-	/*
-	Crear una aplicación que me permita obtener el perfil de usuario de forma asincrónica.
+    <script>
+        let objEdades = {
+            marta: 20,
+            juan: 32,
+            carla: 85
+        }
+        console.log(objEdades);
 
-	Nivel 1) La aplicación funciona para un solo usuario, consta de un solo botón y un archivo usuario.html con los datos del usuario a cargar
+        let arrayEdades= [20,32,85];
+            arrayEdades.push(40);
+        console.log(arrayEdades);
+        console.log(window);
 
-	Nivel 2) La aplicación funciona para tres usuarios, consta de tres botones y tres archivos diferentes con los datos de cada usuario a cargar.
 
-	Nivel 3) La aplicación funciona para tres usuarios, consta de tres botones, un archivo llamado "template.html" y varios archivos de texto formateados con los datos de cada usuario. Al hacer click cada boton, se debe cargar de forma asincrónica el texto formateado y rellenar la plantilla obtenida de template.html con los datos correspondientes.
-	*/
-	/*
-		// 1. Creo la petición
-		const peticion = new XMLHttpRequest();
-		// 2. Abro la conexión
-		peticion.open("get", "contenido.html");
-		// 3. Envio la petición
-		peticion.send();
-		// 4. Escucho los eventos importantes
-		peticion.addEventListener("load", e => {
-			document.querySelector("#titulo").innerHTML = peticion.response;
-		});
-		
-		peticion.responseType = 
-			nada => texto
-			"text" => texto
-			"json" => objeto
-			"blob" => binario
-		*/
+        let protoEdades = {
+            mostrar:function(){
+                console.log("saludando......");
 
-	</script>
+            }
+
+        };
+
+//objEdades.marta=50;
+objEdades.__protoEdades__=protoEdades;
+console.log(objEdades);
+objEdades.mostrar();
+        
+    </script>
 </body>
 </html>

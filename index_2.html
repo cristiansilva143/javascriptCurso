@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Clase 8 - Prototipos - ¿Cómo puedo crear un objeto?</title>
+</head>
+
+<body>
+    <h1>¿Qué es un objeto?</h1>
+    <p>
+        <ul>
+            <li>Tipo de Dato / Clase con propiedades y métodos</li>
+            <li>Tiene sus propiedades y su comportamiento determinado</li>
+            <li>Una función puede ser un objeto</li>
+            <li>Un evento puede ser un objeto</li>
+            <li>Una parte o entidad de un sistema, que tiene atributos y comportamientos, y se puede relacionar con
+                otras entidades</li>
+            <li>Una instancia de una clase</li>
+            <li>Un conjunto de propiedades clave/valor</li>
+        </ul>
+
+        <b>POO (Clases)</b> <br>
+        Clase =/= Objeto <br>
+        Modelo =/= Practica <br>
+        Receta =/= Tarta <br>
+        <br>
+        <b>POO (Prototipos)</b> <br>
+        Receta == Tarta <br>
+        Modelo == Práctica <br>
+        NO hay clases. Solo objetos basados en otros objetos <br>
+    </p>
+    <h1>¿Cómo se crea un objeto?</h1>
+    <p></p>
+    <hr>
+
+    <div id="form">
+        <input type="text" placeholder="Nombre...">
+        <input type="text" placeholder="Apellido...">
+        <input type="number" placeholder="Edad..."><br>
+        <button id="btnForm">Crear</button>
+    </div>
+
+    <script>
+        // Diseñar un formulario que te permita crear un objeto persona
+        // Cada campo del Form debe corresponder con una propiedad persona.
+        // El objeto creado tendrá como prototipo Persona, cuyas propiedades
+        // serán DNI (txt) y caminar (fn). Mostrar por consola al obj creado.
+
+        //console.log(this); //ambito particular
+        //console.log(self); //ambito global
+        
+        const btnForm = document.querySelector("#btnForm");
+        const inputs = document.querySelectorAll("#form input");
+        let obj = {};
+        btnForm.addEventListener("click", e => {
+            obj.nombre = inputs[0].value;
+            obj.apellido = inputs[1].value;
+            obj.edad = inputs[2].value;
+            obj.__proto__ = {
+                dni: "",
+                caminar: function () {
+                    console.log("Caminando...");
+                }
+            };
+            console.log(obj);
+        });
+    </script>
+</body>
+
+</html>
