@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototipos</title>
+</head>
+<body>
+    <script>
+        let objEdades = {
+            marta: 20,
+            juan: 32,
+            carla: 85
+        }
+        console.log(objEdades);
+
+        let arrayEdades= [20,32,85];
+            arrayEdades.push(40);
+        console.log(arrayEdades);
+        console.log(window);
+
+
+        let protoEdades = {
+            mostrar:function(){
+                console.log("saludando......");
+
+            }
+
+        };
+
+//objEdades.marta=50;
+objEdades.__protoEdades__=protoEdades;
+console.log(objEdades);
+objEdades.mostrar();
+        
+    </script>
+</body>
+</html>
