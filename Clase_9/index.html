@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        /*Crear la clase venta, que contenga el listado de los productos involucreados,
+        el cliente que efectuo la compra, una funcion obtenerCliente() y otra funcion recorrerListado() que ejecute un callback
+        para cada item de dicho listado.
+        */
+
+        /*class Venta {
+                constructor(cliente,listado){
+                    this.listado = listado;
+                    this.cliente= cliente;
+
+                    this.obtenerCliente = this.obtenerCliente.bind(this); ///bindeo
+                    this.recorrerListado = this.recorrerListado.bind(this);
+                }
+
+                    obtenerCliente(){
+                        return this.cliente;
+
+                    }
+                recorrerListado(){
+                    for (let i = 0; i<this.listado.length;i++)
+                    callback(this.listado[i]);
+                }
+            
+            };
+
+            const v = new params.Venta("PEPE", [prod1, prod2, prod3]);
+                v.recorrerListado(function(item) {console.log(item)});
+
+                /* Crear la clase prodcutos con la siguiente propiedades: nro, nombre, descripcion, precio, stock inicial, stock actual.
+                agregar una funcion llamada describir() que muestre por consola los distintos datos del producto*/
+
+        class Producto {
+            constructor(params = { nro: 0, nombre: "", descripcion: "", precio: 0, stock_inicial: 0, stock_actual: 0 }) {
+                this.nro = params.nro;
+                this.nombre = params.nombre;
+                this.descripcion = params.descripcion;
+                this.precio = params.precio;
+                this.stock_inicial = params.stock_inicial;
+                this.stock_actual = params.stock_actual;
+
+                this.describir = this.describir.bind(this);
+            }
+            describir() {
+                console.log(this.nombre, this.nro);
+                console.log(this.descripcion);
+
+            }
+        };
+
+        ///////herencia///////
+
+        class Electronicos extends Producto {
+
+            constructor(params) {
+                super(params);
+
+            }
+        };
+
+        const d = new Producto();
+        const elec = new Electronicos({
+            numero: 10,
+            nombre: "celular",
+            descripcion: "samsung note 8",
+            stock_inicial: 10,
+            stock_actual: 5
+
+        });
+
+        console.log(d);
+        elec.describir();
+
+
+
+
+    </script>
+</body>
+
+</html>
