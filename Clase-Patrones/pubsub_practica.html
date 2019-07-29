@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.boton {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+
+	<div id="btn1">Boton 1</div>
+	<div id="btn2">Boton 2</div>
+	<div id="btn3">Boton 3</div>
+	<div id="btn4">Boton 4</div>
+	<button id="btnAplicar">Aplicar cambios</button>
+	<script>
+		const log = (function(){
+			class Botones {
+				constructor() {
+					this.btns = [];
+				}
+
+				agregar(btn, texto) {
+					this.btns.push({boton: btn, prev: texto});
+				}
+
+				aplicar() {
+					this.btns.forEach(btn => {
+						btn.boton.classList.toggle("boton");
+						btn.boton.innerHTML = btn.prev;
+					})
+				}
+			};
+			return new Botones();
+		})();
+
+		document.querySelectorAll("div").forEach(btn => {
+			btn.addEventListener("click", e => {
+				log.agregar(e.target, e.target.innerHTML);
+				e.target.innerHTML = "Pendiente";
+			})
+		});
+
+		document.querySelector("#btnAplicar").addEventListener("click", e => {
+			log.aplicar();
+		})
+
+	</script>
+</body>
+</html>

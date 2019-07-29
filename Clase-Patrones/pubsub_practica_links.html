@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<input type="text" id="txtLink" width="100" placeholder="Ingresa el link y presiona enter"><br>
+	<button id="btnEnviar">Abrir Todos</button>
+	<script>
+		/*
+		Vamos a hacer una aplicación que me sirva para abrir varios links a la vez. La aplicación constará de un formulario con un campo de texto en el que se introducirá la URL, un boton que diga agregar y un boton más grande que diga VISITAR. El boton agregar agrega el link a la lista y el boton visitar abre una página nueva por cada item de la lista.
+		Nota: window.open("url") abre un popup con ese link
+		*/
+		const links = (function(){
+			class Links {
+				constructor() {
+					this.lnks = [];
+				}
+
+				agregar(link) {
+					this.lnks.push(link);
+				}
+
+				abrir() {
+					this.lnks.forEach(link => {
+						window.open(link);
+					})
+				}
+			};
+			return new Links();
+		})();
+
+		document.querySelector("#txtLink").addEventListener("keyup", e => {
+			e.preventDefault();
+			//console.log(e.keyCode);
+			if(e.keyCode == 13) {
+				// Se presionó Enter
+				links.agregar(e.target.value);
+				console.log(e.target.value);
+				e.target.value = "";
+			}
+		});
+
+		document.querySelector("#btnEnviar").addEventListener("click", e => {
+			links.abrir();
+		});
+	</script>
+</body>
+</html>

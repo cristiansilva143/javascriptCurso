@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script>
+		// Importar de una API determinado recurso (p. ej. de JSONPlaceHolder /users o de SWAPI /people) mediante una función basada en el patrón módulo.
+		const vehiculo = (function(success, vehicu){
+			// Sand Crawler
+			fetch("https://swapi.co/api/vehicles/")
+			.then(r => r.json())
+			.then(json => {
+				const data = json.results;
+				data.forEach(veh => {
+					if(veh.name == vehicu) {
+						success({
+							nombre: veh.name,
+							modelo: veh.model,
+							link: veh.url
+						});
+					}
+				});
+			})
+			.catch(err => console.log(err));			
+		})(v => console.log(v), "Sand Crawler");
+
+
+		// Diseñar un programa que, mediante prompts te permita cargar un nuevo usuario.
+		const nuevoUsuario = (function(){
+			let nombre = prompt("Nombre: ");
+			let email = prompt("Email: ");
+			let usuario = prompt("Usuario: ");
+			let clave = prompt("Clave: ");
+
+			if(["admin", "sebastian", "carolina", "info"].includes(usuario))
+				return false;
+			else
+				return {
+					name: nombre,
+					mail: email,
+					user: usuario,
+					pass: clave
+				};
+		})();
+		console.log(nuevoUsuario);
+	</script>
+</body>
+</html>
