@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "usuario": "gperez",
+        "clave": "123gperez",
+        "rol": "administrador"
+    },
+    {
+        "id": "2",
+        "usuario": "avallejos",
+        "clave": "123avallejos",
+        "rol": "ventas"
+    },
+    {
+        "id": "3",
+        "usuario": "slopez",
+        "clave": "123slopez",
+        "rol": "invitado"
+    }
+]

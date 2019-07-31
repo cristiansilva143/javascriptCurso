@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        Realizar un sistema de logeo. Al cargar la página, el sistema debe comprobar que el usuario no esté previamente logeado. Si está logueado, debe mostrar su nombre, darle la bienvenida y mostrar un boton que permita cerrar la sesión. Si no está logueado, debe pedir el usuario y la clave para ingresar.
+        */
+        function usuarioCorrecto(username) {
+            document.write(`Bienvenido/a! ${username} <hr> <a href="#" id="cerrarSesion">Cerrar sesión</a>`);
+
+            document.querySelector("#cerrarSesion").addEventListener("click", () => {
+                sessionStorage.removeItem("usuario");
+            });
+        }
+
+        if (sessionStorage.getItem("usuario")) {
+            const nombre = JSON.parse(sessionStorage.getItem("usuario")).usuario;
+            usuarioCorrecto(nombre);
+        } else {
+            const usuario = prompt("Ingrese el usuario");
+            const clave = prompt("Ingrese la clave");
+
+            fetch("usuarios.json")
+                .then(res => res.json())
+                .then(json => {
+                    /*array.find(function(valor){
+                        return valor == "Pepe"
+                    })*/
+                    const us = json.find(val => val.usuario == usuario && val.clave == clave);
+                    sessionStorage.setItem("usuario", JSON.stringify(us));
+                    usuarioCorrecto(us.usuario);
+                })
+        }
+    </script>
+</body>
+
+</html>

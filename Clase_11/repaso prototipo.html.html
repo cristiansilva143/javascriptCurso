@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Storage</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        Patrón módulo / revelador sirve para ocultar propiedades en un objeto (encapsulamiento)
+        */
+        const planeta = (function () {
+            let gravity = "1";
+
+            function obtenerPlaneta() {
+                return "Tatoonie";
+            }
+
+            return {
+                gravedad: gravity,
+                name: obtenerPlaneta(),
+                orbital_period: "304",
+                population: "120000"
+            }
+        })();
+        /*
+                function Planeta() {
+                    let gravity = "1";
+        
+                    function obtenerPlaneta() {
+                        return "Tatoonie";
+                    }
+        
+                    this.gravedad = gravity;
+                    this.name = obtenerPlaneta();
+                    this.orbital_period = "304";
+                    this.population = "120000";
+                }*/
+
+        class Planeta {
+
+            constructor() {
+                let gravity = "1";
+
+                function obtenerPlaneta() {
+                    return "Tatoonie";
+                }
+
+                this.gravedad = gravity;
+                this.name = obtenerPlaneta();
+                this.orbital_period = "304";
+                this.population = "120000";
+            }
+
+            static nombre = () => {
+                return this.name;
+            }
+
+            n() {
+                return this.name;
+            }
+        }
+        console.log(Planeta.nombre());
+        
+    </script>
+</body>
+
+</html>

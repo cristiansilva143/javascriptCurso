@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Storage</title>
+</head>
+
+<body>
+
+    <script>
+        /*
+        API Storage => Memoria de almacenamiento en el navegador en forma clave / valor
+        NOTA: El valor de cada item puede ser UNICAMENTE texto (o procesable como tal)
+        153 => "153"
+        true => "true"
+        obj => interfaz JSON
+                // De objeto a texto
+                let txt = JSON.stringify(obj);
+
+                // De texto a objeto
+                let obj = JSON.parse(txt);
+
+        Métodos de Storage
+            Lectura
+                .clave
+                .getItem("clave")
+            Escritura
+                .setItem("clave", "valor")
+
+        Implementaciones de Storage
+            LocalStorage (localStorage)
+                Se borra únicamente cuando el usuario limpia el historial o borra la caché*
+            SessionStorage (sessionStorage)
+                Se borra automáticamente al cerrar la pestaña / ventana actual del navegador
+        */
+
+        if (sessionStorage.getItem("usuario")) {
+            if (localStorage.getItem("planetas")) {
+                console.log(JSON.parse(localStorage.planetas))
+            } else {
+                fetch("https://swapi.co/api/planets")
+                    .then(res => res.json())
+                    .then(json => localStorage.setItem("planetas", JSON.stringify(json)))
+                    .catch(err => console.log(err));
+            }
+        } else {
+            if(prompt("Contraseña por favor") == "locolope") {
+                sessionStorage.setItem("usuario", "correcto");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Storage Practica</title>
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="panel-title"> - Login Con SessionStorage y LocalStorage</h3>
+
+        <form id="login-form"> 
+                <input id="userName" type="text" placeholder="Enter Username" value=""/>
+                <input id="userPw" type="password" placeholder="Enter Password" value=""/>
+                <input id="login_btn" type="submit" value="Login" onClick="check()"/> 
+           </form>
+    
+    </div>
+
+    <script>
+        /* Realizar un sistema de logeo. Al cargar la pagina, el sistema debe comprobar que el usuario no este previamente logeado. si Esta logeado, debe mostrar,
+        debe mostrar su nombre, darle la bienvenida y mostrar un boton que permita cerrar la seccion.
+        Si no este logedo, debe pedir el usuario y la clave para ingresar.
+        Nota: la validacion debe hacerse mediante un archivo de usuarios.json */
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// /////
+
+
+var name = document.getElementById('name');
+var pw = document.getElementById('pw');
+
+
+function store() {
+    localStorage.setItem('name', name.value);
+    localStorage.setItem('pw', pw.value);
+}
+
+    if (sessionStorage.getItem("name")) {
+            const nombre = JSON.parse(sessionStorage.getItem("usuario")).usuario;
+            usuarioCorrecto(nombre);
+        } else {
+            const usuario = prompt("Ingrese el usuario");
+            const clave = prompt("Ingrese la clave");
+
+            fetch("usuarios.json")
+                .then(res => res.json())
+                .then(json => {
+                    /*array.find(function(valor){
+                        return valor == "Pepe"
+                    })*/
+                    const us = json.find(val => val.usuario == usuario && val.clave == clave);
+                    sessionStorage.setItem("usuario", JSON.stringify(us));
+                    usuarioCorrecto(us.usuario);
+                })
+        }
+
+    </script>
+</body>
+
+</html>
